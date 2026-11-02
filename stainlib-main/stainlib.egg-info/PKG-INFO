@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: stainlib
+Version: 0.6.1
+Summary: A library for H&E image stain normalization and augmentation.
+Home-page: https://github.com/sebastianffx/stainlib
+Author: Sebastian Otálora
+Author-email: sebastianffx@gmail.com
+License-File: LICENSE
+License-File: LICENSE.txt
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: opencv-python
+Requires-Dist: scikit-image
+Requires-Dist: pillow
+Requires-Dist: spams-bin
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary

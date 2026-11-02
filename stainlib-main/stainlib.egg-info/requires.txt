@@ -1,0 +1,6 @@
+numpy
+matplotlib
+opencv-python
+scikit-image
+pillow
+spams-bin
