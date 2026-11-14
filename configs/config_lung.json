@@ -1,0 +1,39 @@
+{
+      "comps": {"avgexp": true, "celltype": true, "neighb": true},
+      "data": {
+          "cell_types": ["B","Myeloid","Endothelial","Fibroblast",
+                         "Macrophage","Malignant","Epithelial","Plasma","T"],
+          "high_conf_prob": 0.6,
+          "min_nuc_area": 10,
+          "expr_scale": 5.0,
+          "num_workers": 4,
+          "hsize": 256, "wsize": 256, "overlap": 30,
+          "max_cells_per_patch": 200
+      },
+      "model": {"emb_dim": 256},
+      "training": {"batch_size": 8, "total_epochs": 100, "learning_rate": 0.001,
+                   "beta1": 0.9, "beta2": 0.999, "weight_decay": 0.0001,
+                   "eps": 1e-8, "stain_aug": true},
+      "save_freqs": {"model_freq": 10, "save_optimizer": false, "state_freq": 0},
+      "data_sources_train_val": {
+          "fp_avgexp":    "/home/clzhang/GHIST/data_demo/Xenium_V1_humanLung_Cancer_FFPE_outs/output/avgexp.csv",
+          "fp_nuc_seg":   "/home/clzhang/GHIST/data_demo/Xenium_V1_humanLung_Cancer_FFPE_outs/output/he_image_nuclei_seg.tif",
+          "fp_hist":      "/home/clzhang/GHIST/data_demo/Xenium_V1_humanLung_Cancer_FFPE_outs/output/he_image.tif",
+          "fp_expr":      "/home/clzhang/GHIST/data_demo/Xenium_V1_humanLung_Cancer_FFPE_outs/output/cell_gene_matrix_filtered.csv",
+          "fp_cell_type": "/home/clzhang/GHIST/data_demo/Xenium_V1_humanLung_Cancer_FFPE_outs/output/celltype_filtered.csv",
+          "fp_nuc_sizes": "/home/clzhang/GHIST/data_demo/Xenium_V1_humanLung_Cancer_FFPE_outs/output/matched_nuclei_filtered.csv"
+      },
+      "data_sources_predict": {
+          "fp_avgexp":    "/home/clzhang/GHIST/data_demo/Xenium_V1_humanLung_Cancer_FFPE_outs/output/avgexp.csv",
+          "fp_nuc_seg":   "/home/clzhang/GHIST/data_demo/Xenium_V1_humanLung_Cancer_FFPE_outs/output/he_image_nuclei_seg.tif",
+          "fp_hist":      "/home/clzhang/GHIST/data_demo/Xenium_V1_humanLung_Cancer_FFPE_outs/output/he_image.tif",
+          "fp_nuc_sizes": false
+      },
+      "regions_val":     {"divisions": [[0.0,0.2],[0.2,0.4],[0.4,0.6],[0.6,0.8],[0.8,1.0]]},
+      "regions_predict": {"divisions": [[0.0,1.0],[0.0,1.0],[0.0,1.0],[0.0,1.0],[0.0,1.0]]},
+      "experiment_dirs": {
+          "root": "/data2/clzhang/weight/GHISTLungweight",
+          "load_dir": "latest", "model_dir": "models",
+          "predict_output_dir": "predict_output", "val_output_dir": "val_output"
+      }
+  }
