@@ -228,7 +228,7 @@ if __name__ == "__main__":
         final[:, ws:we] = np.where(section > 0, section, final[:, ws:we])
 
     resized_h = int(round(max_h * 0.2125))
-    resized_w = int(round(max_w * 0.2125))
+    resized_w = int(round(max_w * 0.2125))#这样缩放 H&E 分割图，对于10X的HE数据这样得到的大小不是1 um/px
     final = cv2.resize(
         final.astype(np.float32),
         (resized_w, resized_h),
