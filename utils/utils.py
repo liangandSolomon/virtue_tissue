@@ -141,6 +141,28 @@ def get_experiment_id(make_new, load_dir, fold_id, exp_dir="experiments"):
     return timestamp
 
 
+
+def parse_epoch_range(s):
+    """Parse an inclusive epoch range string such as '10-100'.
+
+    Returns (lo, hi) as ints, or None when `s` is not of the form 'A-B'.
+    The bounds are swapped if they are given in reverse order.
+    """
+    if not isinstance(s, str):
+        return None
+    m = re.match(r"^\s*(\d+)\s*-\s*(\d+)\s*$", s)
+    if m is None:
+        return None
+    lo, hi = int(m.group(1)), int(m.group(2))
+    if lo > hi:
+        lo, hi = hi, lo
+    return lo, hi
+
+
+def is_epoch_range(s):
+    """True when `s` looks like an epoch range such as '10-100'."""
+    return parse_epoch_range(s) is not None
+
 def is_valid_positive_int(s):
     try:
         return int(s) > 0
