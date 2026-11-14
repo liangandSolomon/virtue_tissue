@@ -142,7 +142,7 @@ def get_input_data(
         df_expr = None
 
     if fp_cell_type is not None:
-        all_intersect = list(set(all_intersect) & set(list(df_ct.index)))
+        all_intersect = list(set(all_intersect) & set(list(df_ct.index)))#问题这里什么都没读到！！！！！
         df_ct = df_ct.loc[all_intersect, :]
     else:
         df_ct = None
